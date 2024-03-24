@@ -14,7 +14,7 @@
   
 */
 
-import { pageLoad } from "./pageLoad";
+import initialLoad from "./pageLoad";
 import "./styles.css";
 
-pageLoad();
+initialLoad();

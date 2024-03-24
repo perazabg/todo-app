@@ -1,7 +1,7 @@
-import { project } from "./project";
-import { task } from "./task";
+import project from "./project";
+import Task from "./task";
 
-function createMain() {
+export default function createMain() {
   // grabs content div
   const content = document.getElementById("content");
 
@@ -10,7 +10,5 @@ function createMain() {
   main.textContent = "";
 
   //add main div to content
-  content.append(main);
+  content.appendChild(main);
 }
-
-export default createMain;

@@ -1,4 +1,4 @@
-function createSidebar() {
+export default function createSidebar() {
   // grabs content div for sidebar
   const content = document.getElementById("content");
 
@@ -7,15 +7,15 @@ function createSidebar() {
 
   const inbox = document.createElement("div");
   inbox.classList.add("inbox");
-  sidebar.append(inbox);
+  sidebar.appendChild(inbox);
 
   const newTaskBtn = document.createElement("div");
-  newTask.classList.add("new-task-btn");
-  sidebar.append(newTaskBtn);
+  newTaskBtn.classList.add("new-task-btn");
+  sidebar.appendChild(newTaskBtn);
 
   const newProjectBtn = document.createElement("div");
-  newProject.classList.add("new-project-btn");
-  sidebar.append(newProjectBtn);
+  newProjectBtn.classList.add("new-project-btn");
+  sidebar.appendChild(newProjectBtn);
 
   content.appendChild(sidebar);
 }
