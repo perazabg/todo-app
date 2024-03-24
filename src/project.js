@@ -1,28 +1,34 @@
-import { task } from "./task";
+const projects = (() => {
+  let projectList = [];
 
-export class project {
-  constructor(title) {
-    this.title = title;
-    this.tasks = [];
-  }
-
-  // get functions
-  getTitle() {
-    return this.title;
-  }
-
-  getTasks() {
-    return this.tasks;
-  }
-
-  addTask(title, description, priority, dueDate) {
-    this.tasks.push(new task(title, description, priority, dueDate));
-  }
-
-  removeTask(task) {
-    const index = this.tasks.indexOf(task);
-    if (index > -1) {
-      this.tasks.splice(index, 1);
+  class Projects {
+    constructor(title) {
+      this.title = title;
+      this.tasks = [];
     }
   }
-}
+
+  function addProject(title) {
+    const project = new Projects(title);
+    projectList.push(project);
+  }
+
+  function deleteProject(index) {
+    if (projectList.length > 1) {
+      projectList.splice(index, 1);
+    }
+  }
+
+  function editProject(index, title) {
+    projectList[index].title = title;
+  }
+
+  return {
+    projectList,
+    addProject,
+    deleteProject,
+    editProject,
+  };
+})();
+
+export default projects;

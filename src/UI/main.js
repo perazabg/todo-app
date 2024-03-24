@@ -1,5 +1,5 @@
-import project from "./project";
-import Task from "./task";
+import Project from "../project";
+import Task from "../task";
 
 export default function createMain() {
   // grabs content div
