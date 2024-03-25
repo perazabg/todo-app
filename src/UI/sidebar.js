@@ -14,14 +14,17 @@ export default function createSidebar() {
 
   const inbox = document.createElement("div");
   inbox.classList.add("inbox");
+  inbox.textContent = "Inbox";
   sidebar.appendChild(inbox);
 
   const notes = document.createElement("div");
   notes.classList.add("notes");
+  notes.textContent = "Notes";
   sidebar.appendChild(notes);
 
   const projects = document.createElement("div");
   projects.classList.add("projects");
+  projects.textContent = "Projects";
   sidebar.appendChild(projects);
 
   const newProjectBtn = document.createElement("div");

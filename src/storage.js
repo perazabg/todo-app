@@ -1,6 +1,9 @@
 // handles local storage of projects and tasks
-import Project from "./project";
 
-class storage {}
+const storage = () => {
+  let projectList = [];
+
+  return {};
+};
 
 export default storage;

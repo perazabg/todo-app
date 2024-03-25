@@ -11,4 +11,8 @@ export default function createMain() {
 
   //add main div to content
   content.appendChild(main);
+
+  function clearMain() {
+    main.innerHTML = "";
+  }
 }

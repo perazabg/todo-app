@@ -1,61 +1,30 @@
-export class Task {
-  constructor(title, description, priority, dueDate, isCompleted = false) {
-    this.title = title;
-    this.description = description;
-    this.priority = priority;
-    this.dueDate = dueDate;
-    this.isCompleted = isCompleted;
+import projects from "./project";
+
+const task = (() => {
+  class Task {
+    constructor(title, description, dueDate, priority, isCompleted = false) {
+      this.title = title;
+      this.description = description;
+      this.dueDate = dueDate;
+      this.priority = priority;
+      this.isCompleted = isCompleted;
+    }
   }
 
-  //create new task html
-  createTask() {
-    const task = document.createElement("div");
-    task.classList.add("task");
-    task.innerHTML = `
-    <div class="task-title">${this.title}</div>
-    <div class="task-description">${this.description}</div>
-    <div class="task-priority">${this.priority}</div>
-    <div class="task-due-date">${this.dueDate}</div>
-    <button class="edit-task-btn">Edit</button>
-    <button class="complete-task-btn">Complete</button>
-    <button class="delete-task-btn">Delete</button>`;
+  function addTask(title, description, dueDate, priority) {
+    const task = new Task(title, description, dueDate, priority);
     return task;
   }
 
-  // get functions
-  getTitle() {
-    return this.title;
-  }
-  getDescription() {
-    return this.description;
+  function deleteTask(projectList, index) {
+    projectList.splice(index, 1);
   }
 
-  getPriority() {
-    return this.priority;
-  }
+  return {
+    Task,
+    addTask,
+    deleteTask,
+  };
+})();
 
-  getDueDate() {
-    return this.dueDate;
-  }
-
-  getIsCompleted() {
-    return this.isCompleted;
-  }
-
-  // set functions
-  setTitle(title) {
-    this.title = title;
-  }
-
-  setDescription(description) {
-    this.description = description;
-  }
-
-  setPriority(priority) {
-    this.priority = priority;
-  }
-
-  setDueDate(dueDate) {
-    this.dueDate = dueDate;
-  }
-}
+export default task;

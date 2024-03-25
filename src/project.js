@@ -1,3 +1,5 @@
+import storage from "./storage";
+
 const projects = (() => {
   let projectList = [];
 
