@@ -10,6 +10,7 @@ export default function createSidebar() {
 
   const newTaskBtn = document.createElement("div");
   newTaskBtn.classList.add("new-task-btn");
+  newTaskBtn.textContent = "+";
   sidebar.appendChild(newTaskBtn);
 
   const inbox = document.createElement("div");
@@ -29,6 +30,7 @@ export default function createSidebar() {
 
   const newProjectBtn = document.createElement("div");
   newProjectBtn.classList.add("new-project-btn");
+  newProjectBtn.textContent = "+";
   sidebar.appendChild(newProjectBtn);
 
   content.appendChild(sidebar);

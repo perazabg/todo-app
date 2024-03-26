@@ -1,4 +1,4 @@
-import storage from "./storage";
+import logic from "./form";
 
 const projects = (() => {
   let projectList = [];

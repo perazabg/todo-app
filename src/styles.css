@@ -12,6 +12,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.header {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background-color: #606060;
+  color: white;
+  height: 80px;
+  width: 100%;
+  padding-left: 133px;
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -33,4 +44,12 @@ body {
   padding: 10px;
   border: 1px solid black;
   margin-top: 20px;
+}
+
+.new-task-btn,
+.new-project-btn {
+  background-color: white;
+  color: black;
+  padding: 5px;
+  border: 1px solid black;
 }
