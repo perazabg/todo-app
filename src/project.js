@@ -1,4 +1,4 @@
-import logic from "./form";
+import event from "./events";
 
 const projects = (() => {
   let projectList = [];
