@@ -7,9 +7,8 @@ import project from "./project";
 const taskDialog = document.getElementById("taskDialog");
 const projectDialog = document.getElementById("projectDialog");
 const taskSubmit = document.getElementById("taskSubmit");
-const newTaskBtn = sidebar.getElementById("newTaskBtn");
 
-newTaskBtn.addEventListener("click", () => {
+sidebar.newTaskBtn.addEventListener("click", () => {
   form.reset();
   taskDialog.showModal();
 });

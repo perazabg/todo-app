@@ -1,7 +1,7 @@
 import Project from "../project";
 import Task from "../task";
 
-export default function createSidebar() {
+const sidebar = () => {
   // grabs content div for sidebar
   const content = document.getElementById("content");
 
@@ -34,4 +34,6 @@ export default function createSidebar() {
   sidebar.appendChild(newProjectBtn);
 
   content.appendChild(sidebar);
-}
+};
+
+export default sidebar;
