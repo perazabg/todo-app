@@ -34,6 +34,14 @@ const sidebar = () => {
   sidebar.appendChild(newProjectBtn);
 
   content.appendChild(sidebar);
+
+  return {
+    newTaskBtn,
+    inbox,
+    notes,
+    projects,
+    newProjectBtn,
+  };
 };
 
 export default sidebar;

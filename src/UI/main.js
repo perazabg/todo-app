@@ -7,7 +7,7 @@ export default function createMain() {
 
   const main = document.createElement("div");
   main.classList.add("main");
-  main.textContent = "";
+  main.innerHTML = "";
 
   //add main div to content
   content.appendChild(main);
