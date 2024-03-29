@@ -1,7 +1,9 @@
 import Project from "../project";
 import Task from "../task";
 
-const sidebar = () => {
+let projectList = [];
+
+const createSidebar = () => {
   // grabs content div for sidebar
   const content = document.getElementById("content");
 
@@ -35,6 +37,28 @@ const sidebar = () => {
 
   content.appendChild(sidebar);
 
+  newTaskBtn.addEventListener("click", () => {
+    const taskDialog = document.getElementById("taskDialog");
+    taskDialog.showModal();
+  });
+
+  newProjectBtn.addEventListener("click", () => {
+    const projectDialog = document.getElementById("projectDialog");
+    projectDialog.showModal();
+  });
+
+  const taskSubmit = document.getElementById("taskSubmit");
+  taskSubmit.addEventListener("click", () => {
+    let title = document.getElementById("title").value;
+    let description = document.getElementById("description").value;
+    let dueDate = document.getElementById("dueDate").value;
+    let priority = document.querySelector(
+      'input[name="priority"]:checked'
+    ).value;
+    let task = Task.addTask(title, description, dueDate, priority);
+    console.log(task);
+  });
+
   return {
     newTaskBtn,
     inbox,
@@ -44,4 +68,4 @@ const sidebar = () => {
   };
 };
 
-export default sidebar;
+export default createSidebar;
