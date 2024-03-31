@@ -1,10 +1,9 @@
 import Project from "../project";
 import Task from "../task";
-
-let projectList = [];
+import main from "../UI/main";
 
 const createSidebar = () => {
-  // grabs content div for sidebar
+  let projectList = [];
   const content = document.getElementById("content");
 
   const sidebar = document.createElement("div");
@@ -35,6 +34,10 @@ const createSidebar = () => {
   newProjectBtn.textContent = "+";
   sidebar.appendChild(newProjectBtn);
 
+  const projectsList = document.createElement("div");
+  projectsList.classList.add("projects-list");
+  sidebar.appendChild(projectsList);
+
   content.appendChild(sidebar);
 
   newTaskBtn.addEventListener("click", () => {
@@ -56,7 +59,21 @@ const createSidebar = () => {
       'input[name="priority"]:checked'
     ).value;
     let task = Task.addTask(title, description, dueDate, priority);
+    localStorage.setItem("tasks", JSON.stringify(taskList));
+    updateMain(task);
     console.log(task);
+  });
+
+  const projectSubmit = document.getElementById("projectSubmit");
+  projectSubmit.addEventListener("click", () => {
+    let title = document.getElementById("title").value;
+    let project = Project.addProject(title);
+    console.log(project);
+    //projectList.push(project);
+    localStorage.setItem("projects", JSON.stringify(projectList));
+    // update projectsList
+
+    console.log(projectList);
   });
 
   return {

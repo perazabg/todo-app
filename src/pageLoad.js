@@ -3,14 +3,14 @@
   - needs to check for local storage 
   - starts on inbox page
 */
-import createHeader from "./UI/header";
+//import createHeader from "./UI/header";
 import createSidebar from "./UI/sidebar";
-import createMain from "./UI/main";
+import main from "./UI/main";
 
 function initialLoad() {
-  createHeader();
+  //createHeader();
   createSidebar();
-  createMain();
+  main.createMain();
 }
 
 export default initialLoad;

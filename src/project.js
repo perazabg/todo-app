@@ -13,6 +13,7 @@ const projects = (() => {
   function addProject(title) {
     const project = new Projects(title);
     projectList.push(project);
+    return projectList;
   }
 
   function deleteProject(index) {

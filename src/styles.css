@@ -12,7 +12,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.header {
+#content {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  height: 100vh;
+}
+
+header {
   display: flex;
   justify-content: left;
   align-items: center;

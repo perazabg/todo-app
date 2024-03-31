@@ -1,9 +1,6 @@
-import header from "./UI/header";
-import sidebar from "./UI/sidebar";
-import main from "./UI/main";
+import createSidebar from "./UI/sidebar";
+import createMain from "./UI/main";
 import task from "./task";
-import project from "./project";
+import projects from "./project";
 
-const taskDialog = document.getElementById("taskDialog");
-const projectDialog = document.getElementById("projectDialog");
-const taskSubmit = document.getElementById("taskSubmit");
+const events = () => {};

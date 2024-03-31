@@ -1,3 +1,4 @@
+/*
 export default function createHeader() {
   // grabs content div
   const content = document.getElementById("content");
@@ -7,3 +8,4 @@ export default function createHeader() {
   header.textContent = "Todo List";
   content.appendChild(header);
 }
+*/

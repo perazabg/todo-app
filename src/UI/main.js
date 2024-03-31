@@ -1,18 +1,20 @@
 import Project from "../project";
 import Task from "../task";
 
-export default function createMain() {
-  // grabs content div
+const main = (() => {
   const content = document.getElementById("content");
 
-  const main = document.createElement("div");
-  main.classList.add("main");
-  main.innerHTML = "";
-
-  //add main div to content
-  content.appendChild(main);
-
-  function clearMain() {
+  function createMain() {
+    const main = document.createElement("div");
+    main.classList.add("main");
     main.innerHTML = "";
+    content.appendChild(main);
+    return main;
   }
-}
+
+  return {
+    createMain,
+  };
+})();
+
+export default main;
