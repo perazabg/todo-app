@@ -7,6 +7,7 @@ const main = (() => {
   function createMain() {
     const main = document.createElement("div");
     main.classList.add("main");
+    main.id = "main";
     main.innerHTML = "";
     content.appendChild(main);
     return main;

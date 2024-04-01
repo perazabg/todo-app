@@ -7,10 +7,9 @@ import sidebar from "./UI/sidebar";
 const render = () => {
   const mainDiv = document.getElementById("main");
 
-  function renderTasks(task) {
+  function renderTask(task) {
     const taskContainer = document.createElement("div"); //here error
     taskContainer.classList.add("taskContainer");
-    content.appendChild(taskContainer);
 
     const taskTitle = document.createElement("div");
     const taskDescription = document.createElement("div");
@@ -32,7 +31,7 @@ const render = () => {
     taskContainer.appendChild(taskDueDate);
     taskContainer.appendChild(taskPriority);
 
-    mainDiv.appendChild(taskContainer);
+    return taskContainer;
   }
 
   function renderProjects(project) {
@@ -42,7 +41,7 @@ const render = () => {
   }
 
   return {
-    renderTasks,
+    renderTask,
     renderProjects,
   };
 };

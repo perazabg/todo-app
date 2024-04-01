@@ -1,9 +1,10 @@
 import Project from "../project";
 import Task from "../task";
 import main from "../UI/main";
+import events from "../events";
 
 const sidebar = () => {
-  let projectList = [];
+  let projectList = JSON.parse(localStorage.getItem("projects")) || [];
   const content = document.getElementById("content");
 
   const sidebar = document.createElement("div");
@@ -40,6 +41,8 @@ const sidebar = () => {
 
   content.appendChild(sidebar);
 
+  // Event listeners for new task and new project buttons
+
   newTaskBtn.addEventListener("click", () => {
     const taskDialog = document.getElementById("taskDialog");
     taskDialog.showModal();
@@ -50,39 +53,65 @@ const sidebar = () => {
     projectDialog.showModal();
   });
 
+  // Event listener for task submission
+
   const taskSubmit = document.getElementById("taskSubmit");
   taskSubmit.addEventListener("click", () => {
+    // Get task details from form
     let title = document.getElementById("title").value;
     let description = document.getElementById("description").value;
     let dueDate = document.getElementById("dueDate").value;
     let priority = document.querySelector(
       'input[name="priority"]:checked'
     ).value;
+
+    // Create task and save to localStorage
     let task = Task.addTask(title, description, dueDate, priority);
     localStorage.setItem("tasks", JSON.stringify(task));
-    // render main
-    console.log(task);
+
+    // Render task in main UI
+    const mainDiv = document.getElementById("main");
+    mainDiv.appendChild(events.);
   });
+
+  // Event listener for project submission
 
   const projectSubmit = document.getElementById("projectSubmit");
   projectSubmit.addEventListener("click", () => {
-    let title = document.getElementById("title").value;
-    let project = Project.addProject(title);
-    console.log(project);
-    //projectList.push(project);
-    localStorage.setItem("projects", JSON.stringify(projectList));
-    // update projectsList
+    // Get project title from form
+    let title = document.getElementById("projectTitle").value;
 
-    console.log(projectList);
+    // Create project and update projectList
+    let project = Project.addProject(title);
+    projectList.push(project);
+    localStorage.setItem("projects", JSON.stringify(projectList));
+
+    // Update projects list UI
+    renderProjectsList();
   });
 
-  const taskCancel = document.getElementById("taskCancel");
+  // Function to render projects list
+
+  const renderProjectsList = () => {
+    projectsListContainer.innerHTML = ""; // Clear previous list
+
+    projectList.forEach((project) => {
+      const projectItem = document.createElement("div");
+      projectItem.textContent = project.title;
+      projectsListContainer.appendChild(projectItem);
+    });
+  };
+
+  // Call renderProjectsList initially
+  renderProjectsList();
+
+  // Event listeners for cancel buttons
+
   taskCancel.addEventListener("click", () => {
     const taskDialog = document.getElementById("taskDialog");
     taskDialog.close();
   });
 
-  const projectCancel = document.getElementById("projectCancel");
   projectCancel.addEventListener("click", () => {
     const projectDialog = document.getElementById("projectDialog");
     projectDialog.close();

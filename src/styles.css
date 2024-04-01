@@ -59,3 +59,15 @@ header {
   padding: 5px;
   border: 1px solid black;
 }
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: 20px;
+  padding: 10px;
+  border: 1px solid black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
