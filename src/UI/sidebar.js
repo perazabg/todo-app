@@ -2,7 +2,7 @@ import Project from "../project";
 import Task from "../task";
 import main from "../UI/main";
 
-const createSidebar = () => {
+const sidebar = () => {
   let projectList = [];
   const content = document.getElementById("content");
 
@@ -76,6 +76,18 @@ const createSidebar = () => {
     console.log(projectList);
   });
 
+  const taskCancel = document.getElementById("taskCancel");
+  taskCancel.addEventListener("click", () => {
+    const taskDialog = document.getElementById("taskDialog");
+    taskDialog.close();
+  });
+
+  const projectCancel = document.getElementById("projectCancel");
+  projectCancel.addEventListener("click", () => {
+    const projectDialog = document.getElementById("projectDialog");
+    projectDialog.close();
+  });
+
   return {
     newTaskBtn,
     inbox,
@@ -85,4 +97,4 @@ const createSidebar = () => {
   };
 };
 
-export default createSidebar;
+export default sidebar;
