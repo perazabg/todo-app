@@ -71,7 +71,7 @@ const sidebar = () => {
 
     // Render task in main UI
     const mainDiv = document.getElementById("main");
-    mainDiv.appendChild(events.);
+    mainDiv.appendChild(events.renderTask(task));
   });
 
   // Event listener for project submission
