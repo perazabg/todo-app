@@ -35,8 +35,15 @@ const render = () => {
     mainDiv.appendChild(taskContainer);
   }
 
+  function renderProjects(project) {
+    const projectContainer = document.createElement("div");
+    projectContainer.classList.add("projectContainer");
+    sidebar.projectsListContainer.appendChild(projectContainer);
+  }
+
   return {
     renderTasks,
+    renderProjects,
   };
 };
 export default render;

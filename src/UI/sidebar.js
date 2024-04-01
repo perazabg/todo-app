@@ -34,9 +34,9 @@ const sidebar = () => {
   newProjectBtn.textContent = "+";
   sidebar.appendChild(newProjectBtn);
 
-  const projectsList = document.createElement("div");
-  projectsList.classList.add("projects-list");
-  sidebar.appendChild(projectsList);
+  const projectsListContainer = document.createElement("div");
+  projectsListContainer.classList.add("projects-list");
+  sidebar.appendChild(projectsListContainer);
 
   content.appendChild(sidebar);
 
@@ -59,8 +59,8 @@ const sidebar = () => {
       'input[name="priority"]:checked'
     ).value;
     let task = Task.addTask(title, description, dueDate, priority);
-    localStorage.setItem("tasks", JSON.stringify(taskList));
-    updateMain(task);
+    localStorage.setItem("tasks", JSON.stringify(task));
+    // render main
     console.log(task);
   });
 
@@ -94,6 +94,7 @@ const sidebar = () => {
     notes,
     projects,
     newProjectBtn,
+    projectsListContainer,
   };
 };
 
