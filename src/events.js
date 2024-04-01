@@ -4,9 +4,7 @@ import task from "./task";
 import main from "./UI/main";
 import sidebar from "./UI/sidebar";
 
-const render = () => {
-  const mainDiv = document.getElementById("main");
-
+const render = (() => {
   function renderTask(task) {
     const taskContainer = document.createElement("div"); //here error
     taskContainer.classList.add("taskContainer");
@@ -44,5 +42,5 @@ const render = () => {
     renderTask,
     renderProjects,
   };
-};
+})();
 export default render;

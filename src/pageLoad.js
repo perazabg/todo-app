@@ -4,13 +4,12 @@
   - starts on inbox page
 */
 //import createHeader from "./UI/header";
-import createSidebar from "./UI/sidebar";
+import sidebar from "./UI/sidebar";
 import main from "./UI/main";
 
 function initialLoad() {
-  //createHeader();
-  createSidebar();
-  main.createMain();
+  sidebar();
+  main();
 }
 
 export default initialLoad;

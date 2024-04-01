@@ -3,7 +3,7 @@ import Task from "../task";
 import main from "../UI/main";
 import events from "../events";
 
-const sidebar = () => {
+const sidebar = (() => {
   let projectList = JSON.parse(localStorage.getItem("projects")) || [];
   const content = document.getElementById("content");
 
@@ -70,8 +70,7 @@ const sidebar = () => {
     localStorage.setItem("tasks", JSON.stringify(task));
 
     // Render task in main UI
-    const mainDiv = document.getElementById("main");
-    mainDiv.appendChild(events.renderTask(task));
+    renderMain();
   });
 
   // Event listener for project submission
@@ -97,6 +96,7 @@ const sidebar = () => {
 
     projectList.forEach((project) => {
       const projectItem = document.createElement("div");
+      projectItem.classList.add("projectItem");
       projectItem.textContent = project.title;
       projectsListContainer.appendChild(projectItem);
     });
@@ -125,6 +125,6 @@ const sidebar = () => {
     newProjectBtn,
     projectsListContainer,
   };
-};
+})();
 
 export default sidebar;
