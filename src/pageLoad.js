@@ -8,8 +8,9 @@ import sidebar from "./UI/sidebar";
 import main from "./UI/main";
 
 function initialLoad() {
-  sidebar();
-  main();
+  //localStorage.clear();
+  sidebar;
+  main;
 }
 
 export default initialLoad;

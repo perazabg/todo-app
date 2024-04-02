@@ -1,7 +1,7 @@
 import event from "./events";
 
 const projects = (() => {
-  let projectList = [];
+  let projectList = JSON.parse(localStorage.getItem("projects")) || [];
 
   class Projects {
     constructor(title) {

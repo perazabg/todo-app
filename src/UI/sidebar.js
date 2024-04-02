@@ -4,7 +4,8 @@ import main from "../UI/main";
 import events from "../events";
 
 const sidebar = (() => {
-  let projectList = JSON.parse(localStorage.getItem("projects")) || [];
+  Project.projectList = JSON.parse(localStorage.getItem("projects")) || [];
+
   const content = document.getElementById("content");
 
   const sidebar = document.createElement("div");
@@ -81,9 +82,7 @@ const sidebar = (() => {
     let title = document.getElementById("projectTitle").value;
 
     // Create project and update projectList
-    let project = Project.addProject(title);
-    projectList.push(project);
-    localStorage.setItem("projects", JSON.stringify(projectList));
+    Project.addProject(title);
 
     // Update projects list UI
     renderProjectsList();
@@ -94,7 +93,7 @@ const sidebar = (() => {
   const renderProjectsList = () => {
     projectsListContainer.innerHTML = ""; // Clear previous list
 
-    projectList.forEach((project) => {
+    Project.projectList.forEach((project) => {
       const projectItem = document.createElement("div");
       projectItem.classList.add("projectItem");
       projectItem.textContent = project.title;
