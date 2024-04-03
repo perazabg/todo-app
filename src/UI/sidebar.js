@@ -91,13 +91,18 @@ const sidebar = (() => {
   // Function to render projects list
 
   const renderProjectsList = () => {
-    projectsListContainer.innerHTML = ""; // Clear previous list
+    //projectsListContainer.innerHTML = ""; // Clear previous list
+    //get projects from localStorage
+    if (!localStorage.getItem("projects")) {
+      projectsListContainer.innerHTML = "";
+    }
 
-    Project.projectList.forEach((project) => {
-      const projectItem = document.createElement("div");
-      projectItem.classList.add("projectItem");
-      projectItem.textContent = project.title;
-      projectsListContainer.appendChild(projectItem);
+    let projectList = JSON.parse(localStorage.getItem("projects"));
+
+    projectList.forEach((project, index) => {
+      const projectContainer = document.createElement("div");
+      projectContainer.classList.add("projectContainer");
+      projectsListContainer.appendChild(projectContainer);
     });
   };
 
