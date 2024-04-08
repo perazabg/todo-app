@@ -4,8 +4,6 @@ import main from "../UI/main";
 import events from "../events";
 
 const sidebar = (() => {
-  Project.projectList = JSON.parse(localStorage.getItem("projects")) || [];
-
   const content = document.getElementById("content");
 
   const sidebar = document.createElement("div");
@@ -59,11 +57,11 @@ const sidebar = (() => {
   const taskSubmit = document.getElementById("taskSubmit");
   taskSubmit.addEventListener("click", () => {
     // Get task details from form
-    let title = document.getElementById("title").value;
-    let description = document.getElementById("description").value;
-    let dueDate = document.getElementById("dueDate").value;
+    let title = document.getElementById("taskTitle").value;
+    let description = document.getElementById("taskDescription").value;
+    let dueDate = document.getElementById("taskDueDate").value;
     let priority = document.querySelector(
-      'input[name="priority"]:checked'
+      'input[name="taskPriority"]:checked'
     ).value;
 
     // Create task and save to localStorage
@@ -90,11 +88,12 @@ const sidebar = (() => {
 
   // Function to render projects list
 
-  const renderProjectsList = () => {
-    //projectsListContainer.innerHTML = ""; // Clear previous list
+  function renderProjectsList() {
+    projectsListContainer.innerHTML = ""; // Clear previous list
     //get projects from localStorage
     if (!localStorage.getItem("projects")) {
       projectsListContainer.innerHTML = "";
+      return;
     }
 
     let projectList = JSON.parse(localStorage.getItem("projects"));
@@ -104,7 +103,7 @@ const sidebar = (() => {
       projectContainer.classList.add("projectContainer");
       projectsListContainer.appendChild(projectContainer);
     });
-  };
+  }
 
   // Call renderProjectsList initially
   renderProjectsList();

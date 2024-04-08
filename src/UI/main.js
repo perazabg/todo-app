@@ -10,7 +10,24 @@ const main = (() => {
   main.innerHTML = "";
   content.appendChild(main);
 
-  return {};
+  function renderMain() {
+    const tasks = JSON.parse(localStorage.getItem("tasks"));
+
+    if (!tasks) {
+      return;
+    }
+
+    tasks.forEach((task) => {
+      const taskContainer = document.createElement("div");
+      taskContainer.classList.add("taskContainer");
+    });
+
+    main.appendChild(taskContainer);
+  }
+
+  return {
+    renderMain,
+  };
 })();
 
 export default main;
