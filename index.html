@@ -14,13 +14,28 @@
         <form id="taskForm">
           <h1>Add New Task</h1>
           <input type="text" id="taskTitle" placeholder="Title" />
-          <input type="text" id="description" placeholder="Description" />
-          <input type="date" id="dueDate" />
-          <input type="radio" id="priority" name="priority" value="low" />
+          <input type="text" id="taskDescription" placeholder="Description" />
+          <input type="date" id="taskDueDate" />
+          <input
+            type="radio"
+            id="taskPriority"
+            name="taskPriority"
+            value="low"
+          />
           <label for="low">Low</label>
-          <input type="radio" id="priority" name="priority" value="medium" />
+          <input
+            type="radio"
+            id="taskPriority"
+            name="taskPriority"
+            value="medium"
+          />
           <label for="medium">Medium</label>
-          <input type="radio" id="priority" name="priority" value="high" />
+          <input
+            type="radio"
+            id="taskPriority"
+            name="taskPriority"
+            value="high"
+          />
           <label for="high">High</label>
           <button id="taskSubmit" type="submit">Add Task</button>
           <button id="taskCancel">Cancel</button>
