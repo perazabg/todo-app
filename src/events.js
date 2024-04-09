@@ -4,6 +4,19 @@ import task from "./task";
 import main from "./UI/main";
 import sidebar from "./UI/sidebar";
 
+const taskSubmit = document.getElementById("taskSubmit");
+const projectSubmit = document.getElementById("projectSubmit");
+
+taskSubmit.addEventListener("click", () => {
+  let taskTitle = document.getElementById("taskTitle").value;
+  let taskDescription = document.getElementById("taskDescription").value;
+  let taskDueDate = document.getElementById("taskDueDate").value;
+  let taskPriority = document.getElementById("taskPriority").value;
+
+  const newTask = task.addTask(taskTitle, taskDescription, taskDueDate);
+  localStorage.setItem("tasks", JSON.stringify(newTask));
+});
+
 const render = (() => {
   function renderTask(task) {
     const taskContainer = document.createElement("div"); //here error
@@ -43,4 +56,5 @@ const render = (() => {
     renderProjects,
   };
 })();
+
 export default render;

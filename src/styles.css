@@ -41,8 +41,9 @@ header {
 }
 
 .inbox,
-.notes,
-.projects {
+.projectsContainer {
+  display: flex;
+  justify-content: space-between;
   background-color: white;
   color: black;
   height: 20px;

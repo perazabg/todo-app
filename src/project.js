@@ -1,9 +1,5 @@
-import event from "./events";
-
-const projects = (() => {
-  let projectList = JSON.parse(localStorage.getItem("projects")) || [];
-
-  class Projects {
+const project = (() => {
+  class Project {
     constructor(title) {
       this.title = title;
       this.tasks = [];
@@ -11,9 +7,8 @@ const projects = (() => {
   }
 
   function addProject(title) {
-    const project = new Projects(title);
-    projectList.push(project);
-    return projectList;
+    const project = new Project(title);
+    return project;
   }
 
   function deleteProject(index) {
@@ -22,16 +17,11 @@ const projects = (() => {
     }
   }
 
-  function editProject(index, title) {
-    projectList[index].title = title;
-  }
-
   return {
-    projectList,
+    Project,
     addProject,
     deleteProject,
-    editProject,
   };
 })();
 
-export default projects;
+export default project;
