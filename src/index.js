@@ -1,20 +1,31 @@
-/*
-  each item in the todo list should be an object with the following properties:
-    - boolean isCompleted
-    - title
-    - description
-    - priority (e.g. high, medium, low)
-    - date created
-    - date completed
-    - date due
-    - project folder containing more todo items
-    - edit todo items
-    - each todo item should have a unique id
-  
-  
-*/
+import { renderTodos, addTodo, removeTodo, toggleComplete } from "./helpers.js";
 
-import initialLoad from "./pageLoad";
-import "./styles.css";
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("todo-form");
+  const input = document.getElementById("todo-input");
+  const todoList = document.getElementById("todo-list");
 
-initialLoad();
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const todoText = input.value.trim();
+    if (todoText) {
+      addTodo(todoText);
+      input.value = "";
+      renderTodos();
+    }
+  });
+
+  todoList.addEventListener("click", (e) => {
+    if (e.target.classList.contains("delete-btn")) {
+      const id = e.target.parentElement.dataset.id;
+      removeTodo(id);
+      renderTodos();
+    } else if (e.target.classList.contains("toggle-btn")) {
+      const id = e.target.parentElement.dataset.id;
+      toggleComplete(id);
+      renderTodos();
+    }
+  });
+
+  renderTodos();
+});
